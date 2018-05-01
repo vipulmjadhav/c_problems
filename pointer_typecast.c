@@ -1,65 +1,39 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
 int main()
 {
-	int no =223;
-	int *ptr = &no;
-
-	/*char*ctr = (char*)&no;
-	printf("%d\n",*ctr);         //upto 127	
+	int no=639;
+	int *p = &no;	if(p == &no)
+		printf("Hello same!!!\n");
 	
-	int*itr = (int*)&no;
-	printf("%d\n",*itr);  
+	char *c = (char*)&no;
+	printf("char ->  %d\n",*c);
+	int n = 2;
+	float *ptr = (float*)&n;
+	printf("%d\n",*ptr);
+	return 0;
 	
-	float *ftr = (float*)&no;
-	printf("%f\n",*ftr);	
-	
-	double *dtr = (double*)&no;
-	printf("%f\n",*dtr);	
-
-	char c = 'Z';
-	
-	char*ctr = (char*)&c;
-	printf("%c\n",*ctr);        //Z	
-	
-	int*itr = (int*)&c;
-	printf("%c\n",*itr);        //Z	
-	
-	float *ftr = (float*)&c;
-	printf("%c\n",*ftr);	
-	
-	double *dtr = (double*)&c;
-	printf("%c\n",*dtr);
-
-	
-
-	float f = 3.4;
-	
-	char*ctr = (char*)&f;     
-	printf("%f\n",*ctr);	
-	
-	int*itr = (int*)&f;
-	printf("%f\n",*itr);	
-	
-	float *ftr = (float*)&f;  //3.14
-	printf("%f\n",*ftr);	
-	
-	double *dtr = (double*)&f;
-	printf("%f\n",*dtr);
-*/		
-	double d = 3.66;
-	
-	char*ctr = (char*)&d;     
-	printf("%f\n",*ctr);	
-	
-	int*itr = (int*)&d;
-	printf("%f\n",*itr);	
-	
-	float *ftr = (float*)&d;  
-	printf("%f\n",*ftr);	
-	
-	double *dtr = (double*)&d; //3.66
-	printf("%f\n",*dtr);
-	
-return 0;
 }
+
+/* OUTPUT 
+
+pointer holds direct address of the value its poiniting...
+character pointer holds integer values upto 127 after that ie from 128 it shows -128 and increments.
+character pointer holds (2^7)-1 integer values.
+charcter pointer cant hold the float and double values.
+integer pointer cant hold the float values.
+
+Interesting fact about character pointer ...
+it holds upto 128 intergers then it starts derementing upto 0.
+ie
+0->127                0 - 127   (2^7-1)
+-128->0               128 - 256 (2^8)
+1->127                257 - 383 (2^9-1)
+-128->0               384 - 512 (2^10)
+1->127                512 - 639 (2^11-1)
+.
+.
+.
+*/
